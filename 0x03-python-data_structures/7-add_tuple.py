@@ -2,6 +2,7 @@
 # 7-add_tuple.py
 # Bolakale Aduloju
 
+
 def add_tuple(tuple_a=(), tuple_b=()):
     """Add two tuples."""
     if len(tuple_a) < 2:
