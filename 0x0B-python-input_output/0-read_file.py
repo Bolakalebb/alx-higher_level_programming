@@ -1,18 +1,9 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 20 1 2023
-
-@author: Bolakale Aduloju
-"""
+# 0-read_file.py
+"""Defines a text file-reading function."""
 
 
 def read_file(filename=""):
-    """
-    Reads the file
-
-    Arguments:
-        filename (str): The name of the file to open
-    """
-    with open(filename, encoding='utf-8') as file:
-        print(file.read(), end='')
+    """Print the contents of a UTF8 text file to stdout."""
+    with open(filename, encoding="utf-8") as f:
+        print(f.read(), end="")
