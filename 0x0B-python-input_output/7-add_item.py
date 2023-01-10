@@ -1,24 +1,17 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 10 2023
-
-@author: Bolakale Aduloju
-"""
+# 9-add_item.py
+# Bolakale Aduloju
+"""Add all arguments to a Python list and save them to a file."""
 import sys
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
+if __name__ == "__main__":
+    save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+    load_from_json_file = \
+        __import__('8-load_from_json_file').load_from_json_file
 
-try:
-    new_list = load_from_json_file('add_item.json')
-except:
-    new_list = []
-
-for i in range(1, len(sys.argv)):
-    new_list.append(sys.argv[i])
-
-try:
-    save_to_json_file(new_list, 'add_item.json')
-except:
-    pass
+    try:
+        items = load_from_json_file("add_item.json")
+    except FileNotFoundError:
+        items = []
+    items.extend(sys.argv[1:])
+    save_to_json_file(items, "add_item.json")
