@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script takes in a url, sends a request to the url
+"""Takes in a url, sends a request to the url
 -displays the value of the X-Request-Id variable
 -found in the header of the response
 """
