@@ -8,49 +8,21 @@ Created on Wed Jan 04 2023
 
 
 def matrix_divided(matrix, div):
-    """
-    divides all elements of a matrix
-
-    Args:
-        matrix (list of list): list of list of int or float
-        div (int/float): integer or float to divide for
-
-    Raises:
-        TypeError: Exception if elements in matrix and div are not integer or
-            float; Each row in the matrix have the same size
-        ZeroDivisionError: Exception if div is 0
-
-    Return:
-        The result to divide matrix by div
-    """
-
-    if type(div) not in [int, float] or div != div or\
-            abs(div) > 1.7976931348623158e+308:
-        raise TypeError("div must be a number")
-        return matrix
-    elif div == 0:
+    # Check if the matrix is a list of lists of integers/floats
+    if not all(isinstance(row, list) and all(isinstance(num, (int, float)) for num in row) for row in matrix):
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+    
+    # Check if each row has the same size
+    if len(set(len(row) for row in matrix)) > 1:
+        raise TypeError("Each row of the matrix must have the same size")
+    
+    # Check if div is a number and not equal to 0
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number (integer or float)")
+    if div == 0:
         raise ZeroDivisionError("division by zero")
-        return matrix
-
-    if type(matrix) is list:
-        new_matrix = [x[:] for x in matrix]
-        for i in range(len(matrix)):
-            if i <= len(matrix) - 2 and len(matrix[i]) != len(matrix[i + 1]):
-                raise TypeError("Each row of the matrix must have the same" +
-                                " size")
-                return matrix
-            for j in range(len(matrix[i])):
-                if type(matrix[i][j]) not in [int, float] or\
-                        matrix[i][j] != matrix[i][j] or\
-                        abs(matrix[i][j]) > 1.7976931348623158e+308:
-                    raise TypeError("matrix must be a matrix (list of lists)" +
-                                    " of integers/floats")
-                    return matrix
-                else:
-                    new_matrix[i][j] = round(matrix[i][j] / div, 2)
-    else:
-        raise TypeError("matrix must be a matrix (list of lists)" +
-                        " of integers/floats")
-        return matrix
-
+    
+    # Divide all elements of the matrix by div and round to 2 decimal places
+    new_matrix = [[round(num/div, 2) for num in row] for row in matrix]
     return new_matrix
+
