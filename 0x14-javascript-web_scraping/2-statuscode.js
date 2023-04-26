@@ -1,11 +1,12 @@
 #!/usr/bin/node
-const fetch = require('fectch');
+const fetch = require('node-fetch');
+
 const url = process.argv[2];
 
-fetch.get(url, (error, response) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(`code: ${response.statusCode}`);
-  }
-});
+fetch(url)
+  .then(response => {
+    console.log(`code: ${response.status}`);
+  })
+  .catch(error => {
+    console.error(error.message);
+  });
