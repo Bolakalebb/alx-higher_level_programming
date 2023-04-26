@@ -1,16 +1,15 @@
-##0x14. JavaScript - Web scraping
+0x14. JavaScript - Web scraping
 ---
-##Resources
+Resources
 Read or watch:
 [Working with JSON data](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
 [The workflow of accessing the attributes of a simply-created JSON object by Jimmy Tran from Cohort 1 - San Francisco](https://medium.com/@vietkieutie/the-workflow-of-accessing-the-attributes-of-a-simply-created-json-object-82a5b33e2319)
 [request module](https://github.com/request/request)
 [Modern JS](https://github.com/mbeaudru/modern-js-cheatsheet)
----
 
-##Tasks
----
-###0. Readme
+
+Tasks
+0. Readme
 Write a script that reads and prints the content of a file.
 
 The first argument is the file path
