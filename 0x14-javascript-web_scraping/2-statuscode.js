@@ -1,9 +1,9 @@
 #!/usr/bin/node
-const fetch = require('node-fetch');
+const request = require('node-request');
 
 const url = process.argv[2];
 
-fetch(url)
+request(url)
   .then(response => {
     console.log(`code: ${response.status}`);
   })
